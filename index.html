@@ -1,0 +1,197 @@
+<!DOCTYPE html> <html lang="ru"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Мои финансы</title> <link rel="stylesheet" href="style.css"> </head> <body>
+<div class="container">
+
+    <h1>Мои финансы</h1>
+
+    <div class="summary">
+
+        <div class="card balance">
+            <span>Баланс</span>
+            <strong id="balance">0 ₽</strong>
+        </div>
+
+        <div class="card income">
+            <span>Доходы</span>
+            <strong id="income">0 ₽</strong>
+        </div>
+
+        <div class="card expense">
+            <span>Расходы</span>
+            <strong id="expense">0 ₽</strong>
+        </div>
+
+    </div>
+
+<div class="month-card">
+
+    <div class="month-header">
+
+        <h2>Статистика за месяц</h2>
+
+        <input
+            type="month"
+            id="monthFilter"
+        >
+
+    </div>
+
+    <div class="month-summary">
+
+        <div>
+            <span>Доходы</span>
+            <strong id="monthIncome">0 ₽</strong>
+        </div>
+
+        <div>
+            <span>Расходы</span>
+            <strong id="monthExpense">0 ₽</strong>
+        </div>
+
+        <div>
+            <span>Баланс</span>
+            <strong id="monthBalance">0 ₽</strong>
+        </div>
+
+    </div>
+
+</div>
+
+
+    <div class="form-card">
+
+        <h2>Добавить операцию</h2>
+
+        <form id="transactionForm">
+
+            <label>
+                Тип
+                <select id="type">
+                    <option value="income">Доход</option>
+                    <option value="expense">Расход</option>
+                </select>
+            </label>
+
+            <label>
+                Сумма
+                <input
+                    type="number"
+                    id="amount"
+                    placeholder="Например, 150"
+                    step="0.01"
+                    min="0"
+                    required
+                >
+            </label>
+
+            <label>
+                Категория
+                <select id="category">
+                    <option value="Зарплата">Зарплата</option>
+                    <option value="Еда">Еда</option>
+                    <option value="Транспорт">Транспорт</option>
+                    <option value="Жильё">Жильё</option>
+                    <option value="Развлечения">Развлечения</option>
+                    <option value="Другое">Другое</option>
+                </select>
+            </label>
+
+            <label>
+                Описание
+                <input
+                    type="text"
+                    id="description"
+                    placeholder="Например, обед"
+                >
+            </label>
+
+            <label>
+                Дата
+                <input
+                    type="date"
+                    id="date"
+                    required
+                >
+            </label>
+
+            <div class="form-buttons">
+
+    <button type="submit" id="submitButton">
+        Добавить
+    </button>
+
+    <button type="button" id="cancelButton" class="cancel-button">
+        Отмена
+    </button>
+
+</div>
+
+
+        </form>
+
+    </div>
+<div class="chart-card">
+
+    <h2>Расходы по категориям</h2>
+
+    <div class="chart-container">
+
+        <canvas id="expenseChart"></canvas>
+
+    </div>
+
+</div>
+
+
+<div class="transactions-card">
+
+    <div class="transactions-header">
+
+        <h2>Операции</h2>
+
+        <div class="filters">
+
+            <button
+                type="button"
+                class="filter-button active"
+                data-filter="all"
+            >
+                Все
+            </button>
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="income"
+            >
+                Доходы
+            </button>
+
+            <button
+                type="button"
+                class="filter-button"
+                data-filter="expense"
+            >
+                Расходы
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="transactionsList">
+<p class="empty">
+                Пока операций нет
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script src="script.js"></script>
+
+
+</body> </html>
